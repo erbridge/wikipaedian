@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"os"
 	"time"
 
@@ -33,6 +34,8 @@ func main() {
 
 	now := time.Now()
 
+	rand.Seed(now.UnixNano())
+
 	next := time.Date(
 		now.Year(),
 		now.Month(),
@@ -50,7 +53,7 @@ func main() {
 
 	time.Sleep(sleep)
 
-	if c, err := wiki.NewClient(b); err != nil {
+	if c, err := wiki.NewClient(&b); err != nil {
 		panic(err)
 	} else {
 		c.Start(1 * time.Hour)
