@@ -49,6 +49,12 @@ func (c *Client) Start(d time.Duration) {
 func (c *Client) Post() {
 	last := c.LastPost()
 
+	if last == "" {
+		c.bot.Post("[[\"Hello, World!\" program|Hello World!]]", false)
+
+		return
+	}
+
 	page, _ := c.Page(last)
 
 	content := c.CreatePost(page)
@@ -59,8 +65,13 @@ func (c *Client) Post() {
 }
 
 func (c *Client) LastPost() string {
-	// TODO: Find the last post.
-	return "[[\"Hello, World!\" program|Hello World!]]"
+	if text, err := c.bot.LastTweetText(); err != nil {
+		panic(err)
+	} else {
+		return text
+	}
+
+	return ""
 }
 
 func (c *Client) Page(last string) (content, timestamp string) {
