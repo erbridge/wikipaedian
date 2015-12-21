@@ -1,0 +1,9 @@
+hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+updated: 2015-12-21T02:22:17.937114411Z
+imports:
+- name: cgt.name/pkg/go-mwclient
+  version: d40301c3a6ca46f614bce5d283fe4fe762ad7205
+- name: github.com/antonholmquist/jason
+  version: 45d2bc81fe7570f04969728f3a941216fc565b61
+  repo: https://github.com/antonholmquist/jason
+devImports: []

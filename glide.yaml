@@ -1,0 +1,3 @@
+package: github.com/erbridge/wikipaedian
+import:
+- package: cgt.name/pkg/go-mwclient
