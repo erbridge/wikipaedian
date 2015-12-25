@@ -58,4 +58,8 @@ func main() {
 	} else {
 		c.Start(1 * time.Hour)
 	}
+
+	if err := b.Stop(); err != nil {
+		panic(err)
+	}
 }
