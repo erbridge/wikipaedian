@@ -55,7 +55,7 @@ func (c *Client) post() {
 		return
 	}
 
-	page, _ := c.page(last)
+	page := c.page(last)
 
 	content := c.createPost(page)
 
@@ -74,7 +74,7 @@ func (c *Client) lastPost() string {
 	return ""
 }
 
-func (c *Client) page(last string) (content, timestamp string) {
+func (c *Client) page(last string) (content string) {
 	re := regexp.MustCompile("\\[{2}([^:]+?)\\]{2}")
 
 	matches := re.FindAllStringSubmatch(last, -1)
@@ -90,7 +90,7 @@ func (c *Client) page(last string) (content, timestamp string) {
 		title = match[1]
 	}
 
-	content, timestamp, err := c.wiki.GetPageByName(title)
+	content, _, err := c.wiki.GetPageByName(title)
 
 	if err != nil {
 		panic(err)
