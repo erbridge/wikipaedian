@@ -1,5 +1,5 @@
 hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-updated: 2015-12-21T06:43:01.130357867Z
+updated: 2015-12-25T03:29:12.363209565Z
 imports:
 - name: appengine
   version: ""
@@ -8,26 +8,20 @@ imports:
   version: d40301c3a6ca46f614bce5d283fe4fe762ad7205
 - name: github.com/antonholmquist/jason
   version: 45d2bc81fe7570f04969728f3a941216fc565b61
-  repo: https://github.com/antonholmquist/jason
 - name: github.com/azr/backoff
   version: dd6e01f857f8c114b40c6ce808502a87c58c6816
-  repo: https://github.com/azr/backoff
 - name: github.com/ChimeraCoder/anaconda
   version: aa628ec9b414f6a2d88834a40e3b2bbef4dbdf1b
 - name: github.com/ChimeraCoder/tokenbucket
   version: c5a927568de7aad8a58127d80bcd36ca4e71e454
-  repo: https://github.com/ChimeraCoder/tokenbucket
 - name: github.com/dustin/go-jsonpointer
   version: 2efc9fef1d9421a8d252a32e20beb10cecd2bbca
-  repo: https://github.com/dustin/go-jsonpointer
 - name: github.com/dustin/gojson
   version: af16e0e771e2ed110f2785564ae33931de8829e4
-  repo: https://github.com/dustin/gojson
 - name: github.com/erbridge/gotwit
-  version: 6bbf791d3a39d0a74a3ed17069e34fcff61fd0ec
+  version: a2aec6f3831738982be413535e81af5c6ca57b3b
   subpackages:
   - twitter
 - name: github.com/garyburd/go-oauth
   version: 3131beb69b81ff119923bdefbf029318f1f53794
-  repo: https://github.com/garyburd/go-oauth
 devImports: []

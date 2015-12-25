@@ -26,11 +26,9 @@ func main() {
 
 	b := gotwit.NewBot("wikipaedian", con, acc)
 
-	go func() {
-		if err := b.Start(); err != nil {
-			panic(err)
-		}
-	}()
+	if err := b.Start(); err != nil {
+		panic(err)
+	}
 
 	now := time.Now()
 
