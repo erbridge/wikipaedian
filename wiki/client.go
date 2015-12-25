@@ -20,8 +20,10 @@ type (
 )
 
 func NewClient(bot *gotwit.Bot) (client Client, err error) {
-	// TODO: Add contact details to the user agent.
-	wiki, err := mwclient.New("https://en.wikipedia.org/w/api.php", "Wikipaedian")
+	wiki, err := mwclient.New(
+		"https://en.wikipedia.org/w/api.php",
+		"Wikipaedian (https://twitter.com/wikipaedian)",
+	)
 
 	if err != nil {
 		return
