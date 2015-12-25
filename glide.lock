@@ -1,9 +1,21 @@
-hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-updated: 2015-12-25T03:29:12.363209565Z
+hash: 521c8a8f5f9097a4fc9df7d470c02c993f80cecfb8921a20762ac8372b6de738
+updated: 2015-12-25T22:51:09.379128726Z
 imports:
 - name: appengine
   version: ""
   repo: https://appengine
+- name: appengine/datastore
+  version: ""
+  repo: https://appengine/datastore
+- name: appengine/memcache
+  version: ""
+  repo: https://appengine/memcache
+- name: appengine/urlfetch
+  version: ""
+  repo: https://appengine/urlfetch
+- name: appengine/user
+  version: ""
+  repo: https://appengine/user
 - name: cgt.name/pkg/go-mwclient
   version: d40301c3a6ca46f614bce5d283fe4fe762ad7205
 - name: github.com/antonholmquist/jason
