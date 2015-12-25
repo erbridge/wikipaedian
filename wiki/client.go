@@ -49,15 +49,15 @@ func (c *Client) Start(d time.Duration) {
 func (c *Client) post() {
 	last := c.lastPost()
 
+	var content string
+
 	if last == "" {
-		c.bot.Post("[[\"Hello, World!\" program|Hello World!]]", false)
+		content = "[[Hello, World!]]"
+	} else {
+		page := c.page(last)
 
-		return
+		content = c.createPost(page)
 	}
-
-	page := c.page(last)
-
-	content := c.createPost(page)
 
 	fmt.Println(content)
 
