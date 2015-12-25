@@ -53,7 +53,7 @@ func (c *Client) post() {
 
 	var content string
 
-	if last == "" {
+	if last == "" || last == "{{restart}}" {
 		content = "[[Hello, World!]]"
 	} else {
 		page := c.page(last)
@@ -81,7 +81,6 @@ func (c *Client) page(last string) (content string) {
 
 	matches := re.FindAllStringSubmatch(last, -1)
 
-	// FIXME: Handle the 0 match state.
 	title := matches[rand.Intn(len(matches))][1]
 
 	re = regexp.MustCompile("(.+?)\\|")
@@ -128,7 +127,10 @@ func (c *Client) createPost(page string) (content string) {
 
 	matches := re.FindAllStringSubmatch(page, -1)
 
-	// FIXME: Handle the 0 match state.
+	if len(matches) == 0 {
+		return "{{restart}}"
+	}
+
 	match := matches[rand.Intn(len(matches))]
 
 	content = match[1]
@@ -144,7 +146,6 @@ func (c *Client) createPost(page string) (content string) {
 
 		matches := re.FindAllString(content, -1)
 
-		// FIXME: Handle the 0 match state.
 		content = matches[rand.Intn(len(matches))]
 	}
 
