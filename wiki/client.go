@@ -63,7 +63,7 @@ func (c *Client) post() {
 
 	fmt.Println("Posting:", content)
 
-	// c.bot.Post(content, false)
+	c.bot.Post(content, false)
 }
 
 func (c *Client) lastPost() string {
