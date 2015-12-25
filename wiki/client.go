@@ -96,6 +96,12 @@ func (c *Client) page(last string) (content string) {
 		panic(err)
 	}
 
+	re = regexp.MustCompile("^#REDIRECT")
+
+	if re.MatchString(content) {
+		return c.page(content)
+	}
+
 	return
 }
 
