@@ -98,9 +98,11 @@ func (c *Client) page(last string) (content string) {
 		panic(err)
 	}
 
-	re = regexp.MustCompile("^#REDIRECT")
+	re = regexp.MustCompile("^#REDIRECT[[:space:]]+\\[{2}[^:]+?\\]{2}.*?")
 
 	if re.MatchString(content) {
+		content = re.FindString(content)
+
 		fmt.Println("Redirecting:", content)
 
 		return c.page(content)
