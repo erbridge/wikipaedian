@@ -49,6 +49,8 @@ func (c *Client) Start(d time.Duration) {
 func (c *Client) post() {
 	last := c.lastPost()
 
+	fmt.Println("Last post:", last)
+
 	var content string
 
 	if last == "" {
@@ -59,7 +61,7 @@ func (c *Client) post() {
 		content = c.createPost(page)
 	}
 
-	fmt.Println(content)
+	fmt.Println("Posting:", content)
 
 	// c.bot.Post(content, false)
 }
@@ -99,6 +101,8 @@ func (c *Client) page(last string) (content string) {
 	re = regexp.MustCompile("^#REDIRECT")
 
 	if re.MatchString(content) {
+		fmt.Println("Redirecting:", content)
+
 		return c.page(content)
 	}
 
