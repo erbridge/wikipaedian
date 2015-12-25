@@ -39,15 +39,15 @@ func (c *Client) Start(d time.Duration) {
 	c.ticker = time.NewTicker(d)
 	defer c.ticker.Stop()
 
-	c.Post()
+	c.post()
 
 	for range c.ticker.C {
-		c.Post()
+		c.post()
 	}
 }
 
-func (c *Client) Post() {
-	last := c.LastPost()
+func (c *Client) post() {
+	last := c.lastPost()
 
 	if last == "" {
 		c.bot.Post("[[\"Hello, World!\" program|Hello World!]]", false)
@@ -55,16 +55,16 @@ func (c *Client) Post() {
 		return
 	}
 
-	page, _ := c.Page(last)
+	page, _ := c.page(last)
 
-	content := c.CreatePost(page)
+	content := c.createPost(page)
 
 	fmt.Println(content)
 
 	// c.bot.Post(content, false)
 }
 
-func (c *Client) LastPost() string {
+func (c *Client) lastPost() string {
 	if text, err := c.bot.LastTweetText(); err != nil {
 		panic(err)
 	} else {
@@ -74,7 +74,7 @@ func (c *Client) LastPost() string {
 	return ""
 }
 
-func (c *Client) Page(last string) (content, timestamp string) {
+func (c *Client) page(last string) (content, timestamp string) {
 	re := regexp.MustCompile("\\[{2}([^:]+?)\\]{2}")
 
 	matches := re.FindAllStringSubmatch(last, -1)
@@ -99,7 +99,7 @@ func (c *Client) Page(last string) (content, timestamp string) {
 	return
 }
 
-func (c *Client) CreatePost(page string) (content string) {
+func (c *Client) createPost(page string) (content string) {
 	re := regexp.MustCompile("[.!?][[:space:]]+" +
 		"(" +
 		"(" +
